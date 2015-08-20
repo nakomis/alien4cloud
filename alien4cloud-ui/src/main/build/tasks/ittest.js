@@ -28,4 +28,5 @@ module.exports = function(grunt) {
   registerChromeIt('ittest-deployment', 'protractor:runDeployment');
   registerChromeIt('ittest-components', 'protractor:runComponents');
   registerChromeIt('ittest-commonAndSecurity', 'protractor:runCommonAndSecurity');
+  
 };
