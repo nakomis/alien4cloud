@@ -24,6 +24,8 @@ Alien 4 Cloud is written in java for the backend and requires a JDK 7 or newer (
 - install bower  
 
 
+
+
 ```sh
 $ sudo npm install -g bower
 ```
