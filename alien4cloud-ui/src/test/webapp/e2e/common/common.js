@@ -12,20 +12,20 @@ var waitElement = function(selector, fromElement) {
   browser.wait(function() {
     var deferred = protractor.promise.defer();
     var isPresentPromise;
-    if(fromElement && fromElement !== null) {
+    if (fromElement && fromElement !== null) {
       isPresentPromise = fromElement.element(selector).isPresent();
     } else {
       isPresentPromise = browser.element(selector).isPresent();
     }
-    isPresentPromise.then(function (isPresent) {
-      if(!isPresent) {
-        console.log('waiting for element...');
+    isPresentPromise.then(function(isPresent) {
+      if (!isPresent) {
+        console.log('waiting for element...', fromElement, selector);
       }
       deferred.fulfill(isPresent);
     });
     return deferred.promise;
   }, 10000);
-  if(fromElement && fromElement !== null) {
+  if (fromElement && fromElement !== null) {
     return fromElement.element(selector);
   }
   return browser.element(selector);
@@ -35,7 +35,7 @@ module.exports.waitElement = waitElement;
 var click = function(selector, fromElement, skipWaitAngular) {
   var target = waitElement(selector, fromElement);
   browser.actions().click(target).perform();
-  if(!skipWaitAngular) {
+  if (!skipWaitAngular) {
     browser.waitForAngular();
   }
   return target;
@@ -55,8 +55,7 @@ var dismissAlertIfPresent = function() { // toast-close-button
     var closeAlertButton = element(by.css('.toast-close-button'));
     closeAlertButton.click();
     browser.waitForAngular();
-  }).then(function(value) {
-  }, function(error) {
+  }).then(function(value) {}, function(error) {
     return true;
   });
 };
