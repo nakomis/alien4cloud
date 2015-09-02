@@ -19,7 +19,7 @@ var waitElement = function(selector, fromElement) {
     }
     isPresentPromise.then(function(isPresent) {
       if (!isPresent) {
-        console.log('waiting for element...', fromElement, selector);
+        console.log('waiting for element...');
       }
       deferred.fulfill(isPresent);
     });
