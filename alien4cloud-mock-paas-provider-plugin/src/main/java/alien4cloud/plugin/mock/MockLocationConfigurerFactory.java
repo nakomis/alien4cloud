@@ -38,6 +38,9 @@ public class MockLocationConfigurerFactory {
             MockOpenStackLocationConfigurer configurer = applicationContext.getBean(MockOpenStackLocationConfigurer.class);
             return configurer;
         }
+        if (MockOrchestratorFactory.BROOKLYN.equals(locationType)) {
+            return applicationContext.getBean(BrooklynLocationConfigurer.class);
+        }
         return new ILocationConfiguratorPlugin() {
             @Override
             public List<PluginArchive> pluginArchives() {
