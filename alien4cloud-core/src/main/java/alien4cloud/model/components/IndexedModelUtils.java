@@ -49,7 +49,7 @@ public final class IndexedModelUtils {
                     break;
                 }
                 IndexedInheritableToscaElement oldParent = parent;
-                parent = elementsByIdMap.get(parent.getDerivedFrom().get(0));
+                parent = elementsByIdMap.get(parent.getDerivedFrom().get(0) + ":" + element.getArchiveVersion());
                 if (parent == null) {
                     break;
                 }
